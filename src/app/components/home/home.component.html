@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <input class="form-control mb-4" [(ngModel)]="searchQuery" placeholder="Search by title or genre" />
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let movie of filteredMovies">
+    <app-movie-card
+      [movie]="movie"
+      (openModal)="openMovieModal(movie)">
+    </app-movie-card>
+  </div>
+</div>
+
+  <ng-template #movieModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">{{ selectedMovie?.title }}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body d-flex">
+      <div class="me-3">
+        <p><strong>Genre:</strong> {{ selectedMovie?.genre }}</p>
+        <p><strong>Release:</strong> {{ selectedMovie?.releaseDate }}</p>
+        <p *ngIf="selectedMovie?.actors"><strong>Actors:</strong> {{ selectedMovie?.actors?.join(', ') }}</p>
+        <p><strong>Synopsis:</strong> {{ selectedMovie?.synopsis }}</p>
+        <p><strong>Review:</strong> {{ selectedMovie?.review }}</p>
+      </div>
+      <img [src]="'assets/images/' + selectedMovie?.thumbnail" alt="thumbnail" />
+    </div>
+  </ng-template>
+</div>
