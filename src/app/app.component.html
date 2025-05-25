@@ -15,7 +15,7 @@
     <!-- Auth Area -->
     <div class="d-flex gap-2 align-items-center" *ngIf="!auth.isLoggedIn()">
       <button class="btn btn-sm btn-outline-success" (click)="openLoginModal(loginModal)">Login</button>
-      <button class="btn btn-sm btn-outline-primary" (click)="openSignupModal(signupModal)">Sign Up</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="openSignupModal(signupModal)">Registro</button>
     </div>
 
     <div class="d-flex gap-2 align-items-center" *ngIf="auth.isLoggedIn()">
