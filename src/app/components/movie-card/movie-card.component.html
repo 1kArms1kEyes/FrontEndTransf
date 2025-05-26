@@ -2,6 +2,7 @@
   <img [src]="'assets/images/' + movie.image" class="card-img-top" alt="Movie image" />
   <div class="card-body">
     <h5 class="card-title">{{ movie.title }}</h5>
-    <p class="card-text">{{ movie.genre }}</p>
+    <p class="card-text">{{ genreTranslate[movie.genre] || movie.genre }}</p>
   </div>
 </div>
+
